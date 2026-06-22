@@ -4,6 +4,8 @@ function Navbar() {
   const [hovered, setHovered] = useState(false);
   const [pressed, setPressed] = useState(false);
 
+  const mobile = window.innerWidth <= 768;
+
   return (
     <nav
       style={{
@@ -11,30 +13,34 @@ function Navbar() {
         top: 0,
         left: 0,
         width: "100%",
-        padding: "20px 50px",
+        padding: mobile ? "16px" : "20px 50px",
         background: "rgba(0,0,0,0.85)",
         backdropFilter: "blur(12px)",
         display: "flex",
+        flexDirection: mobile ? "column" : "row",
         justifyContent: "space-between",
         alignItems: "center",
+        gap: mobile ? "15px" : "0",
         boxSizing: "border-box",
         zIndex: 1000,
+        textAlign: "center",
         borderBottom: "1px solid rgba(212,175,55,0.15)",
       }}
     >
       <div
         style={{
           display: "flex",
+          flexDirection: mobile ? "column" : "row",
           alignItems: "center",
-          gap: "15px",
+          gap: "12px",
         }}
       >
         <img
           src="/logo.png"
           alt="Elite Fitness"
           style={{
-            width: "55px",
-            height: "55px",
+            width: mobile ? "70px" : "55px",
+            height: mobile ? "70px" : "55px",
             objectFit: "contain",
           }}
         />
@@ -44,6 +50,7 @@ function Navbar() {
             color: "#d4af37",
             margin: 0,
             letterSpacing: "2px",
+            fontSize: mobile ? "1.2rem" : "1.5rem",
           }}
         >
           ELITE FITNESS
@@ -51,7 +58,7 @@ function Navbar() {
       </div>
 
       <a
-href="https://sitecraft-studio-liart.vercel.app#projects"
+        href="https://sitecraft-studio-liart.vercel.app#projects"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => {
           setHovered(false);
@@ -64,10 +71,12 @@ href="https://sitecraft-studio-liart.vercel.app#projects"
             ? "linear-gradient(135deg,#d4af37,#f5d76e)"
             : "#d4af37",
           color: "black",
-          padding: "12px 24px",
+          padding: mobile ? "12px 18px" : "12px 24px",
           borderRadius: "50px",
           textDecoration: "none",
           fontWeight: "800",
+          fontSize: mobile ? "0.85rem" : "1rem",
+          whiteSpace: "nowrap",
           transition: "all 0.25s ease",
           transform: pressed
             ? "scale(0.95)"
