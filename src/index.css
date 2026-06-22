@@ -93,3 +93,31 @@ p {
     padding-right: 16px !important;
   }
 }
+
+@media (max-width: 768px) {
+  * {
+    max-width: 100%;
+  }
+
+  body {
+    text-align: center;
+  }
+
+  section > div {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
+  [style*="display: flex"] {
+    justify-content: center !important;
+  }
+
+  [style*="grid"] {
+    justify-items: center !important;
+  }
+
+  a,
+  button {
+    max-width: 100%;
+  }
+}
