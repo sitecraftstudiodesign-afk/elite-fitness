@@ -34,7 +34,10 @@ function Gallery() {
         <h2
           style={{
             textAlign: "center",
-            fontSize: "3rem",
+            fontSize:
+  window.innerWidth <= 768
+    ? "2.1rem"
+    : "3rem",
             color: "white",
             marginBottom: "20px",
           }}
@@ -55,14 +58,17 @@ function Gallery() {
           recovery and long-term results.
         </p>
 
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns:
-              "repeat(auto-fit,minmax(350px,1fr))",
-            gap: "30px",
-          }}
-        >
+      <div
+  style={{
+    display: "grid",
+    gridTemplateColumns:
+      window.innerWidth <= 768
+        ? "1fr"
+        : "repeat(auto-fit,minmax(350px,1fr))",
+    gap: "30px",
+    maxWidth: "100%",
+  }}
+>
           {images.map((item, index) => (
             <div
               key={index}
@@ -89,7 +95,7 @@ function Gallery() {
             >
               <div
                 style={{
-                  height: "320px",
+                  height: window.innerWidth <= 768 ? "240px" : "320px",
                   overflow: "hidden",
                 }}
               >
