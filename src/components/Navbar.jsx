@@ -51,7 +51,7 @@ function Navbar() {
       </div>
 
       <a
-        href="http://localhost:5173#projects"
+        href="https://sitecraft-studio-liart.vercel.app#projects"
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => {
           setHovered(false);
