@@ -1,28 +1,41 @@
 function Contact() {
+  const mobile = window.innerWidth <= 768;
+
   return (
     <section
       id="contact"
       style={{
         background: "#000",
-        padding: "120px 20px",
+        padding: mobile ? "90px 16px" : "120px 20px",
+        overflowX: "hidden",
       }}
     >
       <div
         style={{
           maxWidth: "1200px",
+          width: "100%",
           margin: "0 auto",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(350px,1fr))",
-          gap: "50px",
+          gridTemplateColumns: mobile ? "1fr" : "repeat(auto-fit,minmax(350px,1fr))",
+          gap: mobile ? "32px" : "50px",
           alignItems: "center",
+          textAlign: mobile ? "center" : "left",
+          boxSizing: "border-box",
         }}
       >
-        <div>
+        <div
+          style={{
+            width: "100%",
+            maxWidth: mobile ? "520px" : "none",
+            margin: mobile ? "0 auto" : "0",
+          }}
+        >
           <h2
             style={{
               color: "white",
-              fontSize: "3rem",
+              fontSize: mobile ? "2.2rem" : "3rem",
               marginBottom: "20px",
+              lineHeight: "1.15",
             }}
           >
             Start Your Transformation
@@ -57,13 +70,17 @@ function Contact() {
 
         <form
           style={{
+            width: "100%",
+            maxWidth: mobile ? "520px" : "none",
+            margin: "0 auto",
             background: "#111",
             border: "1px solid #222",
             borderRadius: "25px",
-            padding: "40px",
+            padding: mobile ? "28px 18px" : "40px",
             display: "flex",
             flexDirection: "column",
             gap: "20px",
+            boxSizing: "border-box",
           }}
         >
           <input type="text" placeholder="Your Name" style={inputStyle} />
@@ -78,6 +95,7 @@ function Contact() {
 
           <button
             style={{
+              width: "100%",
               padding: "18px",
               borderRadius: "50px",
               border: "none",
@@ -85,7 +103,7 @@ function Contact() {
               color: "black",
               fontWeight: "800",
               cursor: "pointer",
-              fontSize: "1rem",
+              fontSize: mobile ? "0.95rem" : "1rem",
             }}
           >
             Request Membership Info →
@@ -97,12 +115,14 @@ function Contact() {
 }
 
 const inputStyle = {
+  width: "100%",
   padding: "18px",
   borderRadius: "15px",
   border: "1px solid #222",
   background: "#0b0b0b",
   color: "white",
   fontSize: "1rem",
+  boxSizing: "border-box",
 };
 
 const infoBox = {
@@ -112,6 +132,7 @@ const infoBox = {
   padding: "25px",
   marginBottom: "20px",
   color: "white",
+  boxSizing: "border-box",
 };
 
 export default Contact;
